@@ -1,0 +1,45 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    /* input manually */
+    {
+      "name": "debug cpp launch",
+      "type": "cppdbg",
+      "request": "launch",
+      "stopAtEntry": false,
+      "program": "${workspaceFolder}/${fileBasenameNoExtension}",
+      "cwd": "${workspaceFolder}",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "pretty printing",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "logging": {
+        // "engineLogging": true,
+        // "programOutput": true
+      },
+      "preLaunchTask": "build"
+    },
+
+    /* with server script */
+    {
+      "type": "gdb",
+      "request": "attach",
+      "name": "attach to gdbserver",
+      "executable": "${workspaceFolder}/${fileBasenameNoExtension}",
+      "target": ":1234",
+      "remote": true,
+      "cwd": "${workspaceRoot}",
+      "valuesFormatting": "prettyPrinters"
+    }
+  ]
+}
